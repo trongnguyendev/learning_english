@@ -1,0 +1,193 @@
+
+* {
+	outline: none !important;
+}
+.form-control:focus {
+	box-shadow: none !important;
+}
+.words-page {
+	padding: 57px 0 0 0;
+}
+.words-page .detail-words .element-word {
+
+}
+.words-page .detail-words .element-word #name-element{
+	font-size: 25px;
+
+}
+.words-page .detail-words .element-word .translation_of_word{
+	/*border-top: 8px solid rgba(22, 222, 243, 0.32);*/
+	margin-top: 5px;
+	padding: 0 10px;
+}
+.element-word .translation_of_word #element-translation{
+	position: relative;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	padding-left: 40px;
+}
+.element-word .translation_of_word #element-translation p {
+	color: #5f6368;
+	font-size: 15px;
+}
+.element-word .translation_of_word #element-translation #stt-element {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	border: 1px solid #ccc;
+	border-radius: 100%;
+	color: #3e2d2d;
+	font-size: 13px;
+	display: flex;
+	width: 25px;
+	height: 25px;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+}
+.element-word .translation_of_word #element-translation #name-element-translation {
+	font-size: 20px;
+	margin-bottom: 3px;
+}
+.word_type {
+	display: block;
+	padding: 3px 10px;
+	font-size: 20px;
+	text-transform: capitalize;
+}
+.word_type i {
+	font-size: 15px;
+	text-transform: initial;
+}
+.words-main {
+	padding: 25px 0;
+}
+.words-main #title-words-main {
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+.words-list {
+
+}
+.word-item {
+	background: #263238;
+	color: #fff;
+	border-radius: 3px;
+	padding: 2px 5px;
+	display: inline-block;
+	margin: 0 10px 10px 0;
+	cursor: pointer;
+}
+.words-page .sidebar {
+	height: 100%;
+	background: #f8f9fa;
+	/*padding: 10px;*/
+	position: sticky;
+	top: 0;
+}
+
+.word-add {
+	width: 100%;
+	padding: 80px 0 15px 0;
+}
+.word-add .sentence {
+	height: 25px;
+	padding: 0px 10px;
+	font-size: 14px;
+	background: rgba(204, 204, 204, 0.18);
+	user-select: auto;
+	margin-top: 15px;
+}
+.word-add .types {
+	display: flex;
+}
+.word-add .card {
+	background: #ffffff38;
+}
+.word-add .type {
+	cursor: pointer;
+	margin-right: 10px;
+	user-select: auto;
+	background: #ccc;
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+.word-add .type label {
+	margin: 0;
+}
+
+.word-add .translation_type {
+	display: flex;
+}
+.word-add .translation_type .set_type{
+	width: 44px;
+	margin-left: 10px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background: #eee;
+}
+.input_word_panel {
+	position: relative;
+}
+.word_exist_panel {
+	display: none;
+	position: absolute;
+	top: 35px;
+	left: 0px;
+	background: #f9f8f8;
+	width: 100%;
+	z-index: 1;
+	border-radius: 0px 0px 10px 10px;
+	border: 1px solid rgb(204, 204, 204);
+	user-select: auto;
+	padding: 5px 0;
+}
+.show_exist_panel {
+	display: block !important;
+}
+.show_exist_panel .search-family {
+	border-bottom: 1px solid #ccc;
+	padding: 10px 10px;
+	position: relative;
+	cursor: pointer;
+}
+.show_exist_panel .search-family:hover {
+	background: #ccc;
+}
+.show_exist_panel .search-family:last-child {
+	border-bottom: none;
+}
+.show_exist_panel .active-search-family {
+	background: #ccc;
+}
+.show_exist_panel .active-search-family:after {
+	content: '\f00c';
+	font-family: FontAwesome;
+	position: absolute;
+	right: 6px;
+	top: 0px;
+}
+.img_loading {
+	position: absolute;
+	right: 8px;
+	top: 11px;
+	width: 17px;
+}
+.exist-item{
+	border-bottom: 1px solid #ccc;
+}
+.exist-item:last-child {
+	border-bottom: none;
+}
+.exist-item h1 {
+	font-size: 17px;
+}
+.exist-item h1 span {
+	font-size: 13px;
+	font-weight: normal;
+}
+.exist-item p {
+	font-size: 13px;
+}
+
+

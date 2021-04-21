@@ -9,6 +9,7 @@ class Base extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		date_default_timezone_set("Asia/Ho_Chi_Minh");
 	}
 
 	protected  function set_dir_page($page) {
