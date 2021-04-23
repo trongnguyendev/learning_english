@@ -56,7 +56,7 @@ class Words_english_model extends  Base_model {
 
 	public function get_word_translation($word) {
 		$sql = '
-				select distinct words.word, type.acronym_type, translation_vn.content as translation, sentences.content as sentence, type.id
+				select distinct words.word, type.acronym_type, translation_vn.content as translation, sentences.content as sentence, type.id, sentences.id as sentence_id, translation_vn.id as translation_id
 				from words 
 				inner join word_translation on word_translation.word_id = words.id 
 				inner join translation_vn on translation_vn.id = word_translation.translation_id 
