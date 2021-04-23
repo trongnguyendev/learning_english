@@ -20,11 +20,27 @@
 	margin-top: 5px;
 	padding: 0 10px;
 }
-.element-word .translation_of_word #element-translation{
+.element-word .translation_of_word:hover .dropdown-translation i{
+	opacity: 1;
+}
+.element-word .translation_of_word #element-translation {
 	position: relative;
 	padding-bottom: 15px;
 	padding-top: 15px;
 	padding-left: 40px;
+}
+.element-word .translation_of_word #element-translation .dropdown-translation {
+	position: absolute;
+	right: -14px;
+	top: 15px;
+}
+.dropdown-translation i {
+	color: black;
+	opacity: 0;
+	font-size: 12px;
+}
+.dropdown-translation .dropdown-toggle::after {
+	display: none;
 }
 .element-word .translation_of_word #element-translation p {
 	color: #5f6368;

@@ -78,6 +78,11 @@ $(document).ready(function(){
 	$("#typeadv").parent(".type").css("background",adv_color);
 	$("#typeconj").parent(".type").css("background",conj_color);
 	$("#typepre").parent(".type").css("background",pre_color);
+	$("#delete-translation").click(function(e){
+		e.preventDefault();
+		console.log("aaaaa");
+	})
+
 })
 
 $(document).on('click', ".btn-addword", function(e){
@@ -211,7 +216,15 @@ $(document).on('click', ".word-item", function() {
 								<div id="element-translation">
 									<span id="stt-element">`+ (index + 1) +`</span>
 									<h2 id="name-element-translation">`+ word.translation +`</h2>
-									<p>`+ word.sentence +`</p>
+									<p id="sentences-translation">`+ word.sentence +`</p>
+									<div class="dropdown-translation">
+										<a class="nav-link dropdown-toggle" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
+										<div class="dropdown-menu" aria-labelledby="dropdown-1">
+											<a href="#" class="dropdown-item update-translation" id="" data-toggle="modal" data-target="#updateModal" href="#">Update</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" id="delete-translation" href="#">Delete</a>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
