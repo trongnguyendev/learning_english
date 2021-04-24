@@ -174,5 +174,14 @@ class Word extends Base {
 		$this->words_english_model->update_word($id, $data_update);
 	}
 
+	public function update_translation($id) {
+		$content = $this->input->post('content');
+		$data_update_translation = array(
+			'content' => $content
+		);
+		$result_update = $this->translation_vietnamese->update_translation($id, $data_update_translation);
+		echo json_encode($result_update);
+	}
+
 
 }

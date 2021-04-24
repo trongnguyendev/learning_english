@@ -213,10 +213,10 @@ $(document).on('click', ".word-item", function() {
 						str_html += `
 						<div class="element-word">
 							<div class="translation_of_word">
-								<div id="element-translation">
+								<div id="element-translation" data-sentence="`+ word.sentence_id +`" data-translation="`+ word.translation_id +`">
 									<span id="stt-element">`+ (index + 1) +`</span>
-									<h2 id="name-element-translation">`+ word.translation +`</h2>
-									<p id="sentences-translation">`+ word.sentence +`</p>
+									<h2 id="name-element-translation" class="element-translation-`+ word.translation_id +`">`+ word.translation +`</h2>
+									<p id="sentences-translation" class="element-sentence-`+ word.sentence_id +`">`+ word.sentence +`</p>
 									<div class="dropdown-translation">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
 										<div class="dropdown-menu" aria-labelledby="dropdown-1">
