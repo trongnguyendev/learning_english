@@ -60,8 +60,8 @@ class Words_english_model extends  Base_model {
 				from words 
 				inner join word_translation on word_translation.word_id = words.id 
 				inner join translation_vn on translation_vn.id = word_translation.translation_id 
-				inner join word_type on word_type.word_id = words.id
-				inner join type on type.id = word_type.type_id
+				inner join word_type on word_type.word_id = words.id 
+				inner join type on type.id = word_type.type_id and translation_vn.type_id = type.id
 				inner join sentences on sentences.translation_id = translation_vn.id
 				inner join word_family on word_family.id = words.word_family_id
 				where word_family.name_family="'.$word .'"

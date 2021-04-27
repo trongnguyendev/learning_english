@@ -33,8 +33,6 @@ class Word extends Base {
 		$this->template->view('pages/words/index');
 	}
 
-
-	// logic chưa đúng
 	public function find($word) {
 		$arr_all = array();
 //		$word = $this->words_english_model->get_words_by_word($word);
