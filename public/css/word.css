@@ -6,7 +6,7 @@
 	box-shadow: none !important;
 }
 .words-page {
-	padding: 57px 0 0 0;
+	padding: 45px 0 0 0;
 }
 .words-page .detail-words .element-word {
 
@@ -86,13 +86,15 @@
 
 }
 .word-item {
-	background: #263238;
-	color: #fff;
+	background: #ffff;
+	font-size: 20px;
 	border-radius: 3px;
 	padding: 2px 5px;
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	cursor: pointer;
+	color: black;
+	box-shadow: 0px 0px 5px;
 }
 .words-page .sidebar {
 	height: 100%;
