@@ -6,7 +6,8 @@
 	box-shadow: none !important;
 }
 .words-page {
-	padding: 45px 0 0 0;
+
+
 }
 .words-page .detail-words .element-word {
 
@@ -76,7 +77,7 @@
 	text-transform: initial;
 }
 .words-main {
-	padding: 25px 0;
+	padding-top: 20px;
 }
 .words-main #title-words-main {
 	font-size: 25px;
@@ -96,6 +97,9 @@
 	color: black;
 	box-shadow: 0px 0px 5px;
 }
+.active-word-item {
+	background: #ccc;
+}
 .words-page .sidebar {
 	height: 100%;
 	background: #f8f9fa;
@@ -106,10 +110,46 @@
 
 .word-add {
 	width: 100%;
-	padding: 80px 0 15px 0;
+}
+.word-add .sidebar-add-word {
+	height: 100%;
+	background: #f8f9fa;
+	/* padding: 10px; */
+	position: sticky;
+	top: 0;
+	width: 100%;
+	overflow: auto;
+}
+.sidebar-add-word::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: #ccc;
+}
+.sidebar-add-word::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #41331c;
+}
+.sidebar-add-word .head-side {
+	font-size: 17px;
+	font-weight: normal;
+	margin-bottom: 10px;
+	background: #ccc;
+	padding: 7px 10px;
+}
+.sidebar-add-word .word-added {
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0;
+	padding: 10px;
+}
+.word-added h2 {
+	font-size: 22px;
+}
+.word-added h2 span {
+	font-size: 15px;
+	font-weight: normal;
 }
 .word-add .sentence {
-	height: 25px;
 	padding: 0px 10px;
 	font-size: 14px;
 	background: rgba(204, 204, 204, 0.18);
@@ -146,6 +186,89 @@
 }
 .input_word_panel {
 	position: relative;
+}
+.input_word_panel #word_english {
+	font-size: 30px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid;
+	background: transparent;
+	padding-left: 0;
+}
+.list-input-translation .translation_vn {
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid;
+	background: transparent;
+	padding-left: 0;
+}
+.list-input-translation {
+	background: #eee;
+	padding: 10px;
+	margin-bottom: 1rem;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 3px #ccc;
+	border-radius: 3px;
+}
+.list-input-translation .input-translation {
+	margin-bottom: 20px;
+}
+.input-translation .remove_input_translation {
+	border: 1px solid #ccc;
+	margin-left: 5px;
+	border-radius: 3px;
+	width: 40px;
+}
+.categories {
+	margin-bottom: 1rem;
+	background: #eee;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px #ccc;
+}
+.cursor-element {
+	cursor: pointer;
+	color: black;
+}
+.btn-addword {
+	background: #41331c;
+	color: #fff;
+	border: 1px solid #41331c;
+}
+.form-add-word {
+	overflow: auto;
+}
+.form-add-word::-webkit-scrollbar {
+	width: 3px;
+	background: transparent;
+}
+
+/*.form-add-word::-webkit-scrollbar-thumb*/
+/*{*/
+/*	border-radius: 10px;*/
+/*	background-color: #41331c;*/
+/*}*/
+.form-add-source {
+	display: none;
+	position: relative;
+}
+.form-add-source input:focus {
+	background: transparent !important;
+}
+.form-add-source input {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid;
+	border-radius: 0;
+	padding-left: 0;
+}
+.remove-form-add-source {
+	position: absolute;
+	right: 0;
+	top: 14px;
+	border: none;
+
 }
 .word_exist_panel {
 	display: none;

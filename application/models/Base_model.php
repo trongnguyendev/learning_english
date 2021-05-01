@@ -40,6 +40,15 @@ class Base_model extends  CI_Model
 		return false;
 	}
 
+	public function store_resp_result($data)
+	{
+		$insert = $this->db->insert($this->_db, $data);
+		if ($insert) {
+			return $this->db->result();
+		}
+		return false;
+	}
+
 	// function for table main
 	public function sync($id, $id_rel, $column_rel)
 	{

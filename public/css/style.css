@@ -1,5 +1,5 @@
 body {
-	font-family: Open Sans, Helvetica, Arial, sans-serif;
+	/*font-family: Open Sans, Helvetica, Arial, sans-serif;*/
 }
 h1, h2, h3,h4,h5, p, a {
 	margin: 0;
@@ -45,10 +45,24 @@ footer p {
 	user-select: auto;
 	/* background-size: contain; */
 	background-position: -92px -180px;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 .evob .header {
 	box-shadow: 0px 0px 5px #ccc;
 	padding: 0;
+	z-index: 11;
+}
+.evob .header {
+	padding: 10px 0;
+
+}
+.evob .header .header-pc {
+	width: 300px;
+	padding-left: 20px;
 }
 .evob-main {
 	display: flex;
@@ -56,18 +70,55 @@ footer p {
 	overflow-y: scroll;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+	width: 100%;
 }
 
 .evob-main::-webkit-scrollbar {
 	display: none;
 
 }
-.header li {
-	margin-right: 5px;
+.evob-main .container-evob {
+	display: flex;
+	width: 100%;
 }
-li.active {
-	background: #ccc;
+.header-search form{
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	width: 500px;
 }
-.header li a {
-	padding: 10px 0;
+
+.header-search form input{
+	border: none;
+	width: 100%;
+	background: transparent;
+}
+.header-search form button {
+	border: none;
+	background: transparent;
+}
+.sidebar-menu {
+	width: 350px;
+	padding-right: 20px;
+	/*background: #f8f9fa;*/
+	padding-top: 20px;
+}
+
+.sidebar-menu li {
+	padding-left: 20px;
+}
+
+.sidebar-menu li.active {
+	background: #41331c;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.sidebar-menu li.active a {
+	color: #fff;
+}
+.sidebar-menu li a{
+	color: black;
+}
+.sidebar-menu li a i {
+	width: 40px;
 }

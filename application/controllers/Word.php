@@ -35,7 +35,6 @@ class Word extends Base {
 
 	public function find($word) {
 		$arr_all = array();
-//		$word = $this->words_english_model->get_words_by_word($word);
 		$type = $this->type_model->get_type_by_family($word);
 		$translation = $this->words_english_model->get_word_translation($word);
 		array_push($arr_all, $type, $translation);
@@ -87,6 +86,10 @@ class Word extends Base {
 		return false;
 	}
 
+	public function get_word_added_today() {
+		$word_today = $this->words_english_model->get_infor_word_added_today();
+		echo json_encode($word_today);
+	}
 	public function store_word() {
 
 
@@ -147,14 +150,17 @@ class Word extends Base {
 			$sync_word_type = $this->word_type->sync_many($word_id, $types[$key]);
 
 
+			$word_result = $this->words_english_model->get_infor_word_by_id($word_id);
 			if($sync_word_translation && $sync_word_type) {
 				$flag_status = true;
 			}else {
 				$flag_status = false;
 			}
 		};
+
+
 		if($flag_status) {
-			echo 'success';
+			echo json_encode($word_result);
 		}else {
 			echo 'error';
 		}

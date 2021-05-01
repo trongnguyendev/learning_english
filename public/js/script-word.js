@@ -8,9 +8,11 @@ let is_check_family = false;
 
 $(document).ready(function(){
 	let width = $(window).width();
-	let height = $(window).height() - 115;
-	$(".evob-main").width(width);
-	$(".evob-main").height(height);
+	let height = $(window).height() - 65;
+	// $(".evob-main").width(width);
+	$(".form-add-word").height(height);
+	$(".sidebar-add-word").height(height);
+	$(".words-main").height(height);
 })
 
 $(document).on("click", ".search-family", function() {
@@ -172,10 +174,19 @@ $(document).on('click', ".btn-addword", function(e){
 			},
 			success: function(data) {
 				console.log(data);
-				if(data == 'success') {
+				let word = JSON.parse(data);
+				if(data != '') {
 					$('.toast').toast('show');
 					$('input[type="text"]').val("");
 					$("#word_english").focus();
+
+					let str_added = `<div class="word-added">
+									<h2>`+ word[0].word +` <span>(`+ word[0].acronym_type +`)</span></h2>
+									<p>`+ word[0].translation +`</p>
+									<i>`+ word[0].sentence +`</i>
+								</div>`;
+					$(".sidebar-add-word").append(str_added);
+					console.log(word[0].word);
 				}
 				else {
 					$('.toast').toast('show');
@@ -188,6 +199,8 @@ $(document).on('click', ".btn-addword", function(e){
 
 
 $(document).on('click', ".word-item", function() {
+	$(".word-item").removeClass("active-word-item")
+	$(this).addClass("active-word-item");
 	let name = $(this).attr('data-name');
 	let str_html = '';
 	$.ajax({
@@ -261,23 +274,48 @@ function get_type(data) {
 $(document).on("click", "#add-translation-input", function() {
 	let trans = $(".translation_vn").length;
 	trans = parseInt(trans)+1;
-	$strInput = `<div class="translation_type">
+	$strInput = `<div class="input-translation">
+				<div class="translation_type">
 				<input type="text" class="translation_vn form-control" id="translation_vn_`+ trans +`" data-type="" data-stt="1" value="" name="translation" placeholder="Translation..">
-				<button class="set_type"><i class="fas fa-cog"></i></button>
+				<button class="set_type"><i class="fas fa-question"></i></button>
+				<button class="remove_input_translation"><i class="far fa-trash-alt"></i></button>
 				</div>
+				<small class="set-type error-text"></small>
 				<small class="form-text text-muted mess_small_translation_vn_`+ trans +`"></small>
-				<input type="text" aria-label="Small" id="sentence_`+ trans +`" value="" aria-describedby="inputGroup-sizing-sm"  class=" form-control sentence" name="sentence" placeholder="Sentence..">
-				<small class="form-text text-muted mess_small_sentence_`+ trans +`"></small><br>`;
+				<textarea type="text" aria-label="Small" id="sentence_`+ trans +`" value="" aria-describedby="inputGroup-sizing-sm"  class=" form-control sentence" name="sentence" cols="30" rows="3" placeholder="Sentence about word"></textarea>
+				<small class="form-text text-muted mess_small_sentence_`+ trans +`"></small>
+				</div>`;
 	$(".list-input-translation").append($strInput);
+
 })
 
-
+$(document).on('click', '#add_source', function() {
+	$(".form-add-source").show();
+	$(".form-add-source input").focus();
+})
+$(document).on('click', '.remove-form-add-source', function(e){
+	e.preventDefault();
+	$(".form-add-source").hide();
+})
+$(document).on('click','.remove_input_translation', function(e){
+	e.preventDefault();
+	$(this).parents(".input-translation").hide();
+})
 $(document).on('click', '.set_type', function(e) {
 	e.preventDefault();
 
 	let type = $(".type_word:checked");
 	let input_translation = $(this).prev(".translation_vn");
-	input_translation.attr('data-type', type.val());
+
+	if(type.val()) {
+		input_translation.attr('data-type', type.val());
+		$(this).html(`<i class="fas fa-check"></i>`);
+	}
+	else {
+		$(".mess-small-set-type-1").html("Not value type word");
+		$(this).parent().next().html("Not value type word");
+	}
+
 	if(type.attr('id') === 'typeadj') {
 		input_translation.css('background-color', adj_color);
 	}else if(type.attr('id') === 'typenoun') {
@@ -291,4 +329,5 @@ $(document).on('click', '.set_type', function(e) {
 	}else if(type.attr('id') === 'typepre') {
 		input_translation.css('background-color', pre_color);
 	}
+
 })

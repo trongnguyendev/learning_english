@@ -18,10 +18,58 @@
 <body>
 <div class="app evob">
 	{include file="header.tpl"}
-	<div class="container evob-main">
-		{block name=body}{/block}
+	<div class="evob-main">
+		<!-- Modal update translation-->
+		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Update word</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label>Translation update</label>
+								<input type="text" id="translation-edit" data-translation="" class="form-control" aria-describedby="">
+								<small id="" class="form-text text-muted">We'll never share your email with anyone else.</small>
+							</div>
+							<div class="form-group">
+								<label>Sentence update</label>
+								<input type="text" id="sentence-edit" data-sentence="" class="form-control">
+								<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" id="btn-update" class="btn btn-primary">Update</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End modal update translation-->
+		<div class="container-evob">
+			<ul class="navbar-nav mr-auto sidebar-menu">
+				<li class="nav-item">
+					<a class="nav-link" href="/word"><i class="far fa-lightbulb"></i> Vocabulary</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/word/add"><i class="fas fa-puzzle-piece"></i>Add new</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/word/write"><i class="fas fa-pen-alt"></i>Write repeat</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/word/write"><i class="fas fa-chart-pie"></i>Analyst Vocabulary</a>
+				</li>
+			</ul>
+			{block name=body}{/block}
+		</div>
 	</div>
-	{include file="footer.tpl"}
+{*	{include file="footer.tpl"}*}
 </div>
 </body>
 </html>
