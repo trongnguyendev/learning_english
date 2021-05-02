@@ -150,7 +150,6 @@ class Word extends Base {
 			$sync_word_type = $this->word_type->sync_many($word_id, $types[$key]);
 
 
-			$word_result = $this->words_english_model->get_infor_word_by_id($word_id);
 			if($sync_word_translation && $sync_word_type) {
 				$flag_status = true;
 			}else {
@@ -160,7 +159,7 @@ class Word extends Base {
 
 
 		if($flag_status) {
-			echo json_encode($word_result);
+			echo 'success';
 		}else {
 			echo 'error';
 		}

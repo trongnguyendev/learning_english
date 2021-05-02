@@ -57,7 +57,7 @@ class Words_english_model extends  Base_model {
 		$begin_date = date('Y-m-d') . ' 00-00-00';
 		$late_date = date('Y-m-d') . ' 23-59-59';
 		$sql = '
-				select distinct words.word, type.acronym_type, translation_vn.content as translation, sentences.content as sentence, type.id, sentences.id as sentence_id, translation_vn.id as translation_id
+				select distinct words.word, type.acronym_type, translation_vn.content as translation, sentences.content as sentence, type.id, sentences.id as sentence_id, translation_vn.id as translation_id, words.created_at
 				from words 
 				inner join word_translation on word_translation.word_id = words.id 
 				inner join translation_vn on translation_vn.id = word_translation.translation_id 
@@ -66,7 +66,7 @@ class Words_english_model extends  Base_model {
 				inner join sentences on sentences.translation_id = translation_vn.id
 				inner join word_family on word_family.id = words.word_family_id
 				where words.created_at > "'. $begin_date .'"  and words.created_at < "'. $late_date .'"
-				order by type.acronym_type asc
+				order by words.created_at desc
 				';
 		$query = $this->db->query($sql);
 		return $query->result_array();

@@ -24,6 +24,8 @@
 								<small id="" class="form-text text-muted mess_small_word_english"></small>
 								<input type="hidden" id="word_family" name="family_word" value=''>
 								<div class="word_exist_panel">
+									aaa
+									<button class="hide_word_exist_panel"><i class="fas fa-times">aaaa</i></button>
 								</div>
 							</div>
 						</div>
@@ -42,16 +44,14 @@
 							<u id="add-translation-input" class="cursor-element"><i>Add new translation..</i></u>
 							<div class="input-translation">
 								<div class="translation_type">
-									<input type="text" class="translation_vn form-control" id="translation_vn_1" data-type="" data-stt="1" value="" name="translation" placeholder="Translation..">
+									<input type="text" autocomplete="off" class="translation_vn form-control" id="translation_vn_1" data-type="" data-stt="1" value="" name="translation" placeholder="Translation..">
 									<button class="set_type"><i class="fas fa-question"></i></button>
-
 								</div>
-								<small class="set-type error-text"></small>
+								<small class="set-type error-text mess_small_type_translation_vn_1"></small>
 								<small class="form-text text-muted mess_small_translation_vn_1"></small>
 								<textarea class="form-control sentence" name="" id="sentence_1" cols="30" rows="3" placeholder="Sentence about word"></textarea>
 								<small class="form-text text-muted mess_small_sentence_1"></small>
 							</div>
-
 						</div>
 
 						<div class="categories">
@@ -66,8 +66,6 @@
 								<button class="remove-form-add-source"><i class="fas fa-trash-alt"></i></button>
 							</div>
 						</div>
-
-						<br>
 
 						<div class="text-right">
 							<button type="submit" class="btn btn-primary btn-addword">Add</button>
@@ -88,7 +86,17 @@
 			</div>
 			<div class="col-md-4">
 				<div class="sidebar-add-word">
-					<h1 class="head-side">Word added in Today</h1>
+					<h1 class="head-side"><i class="fas fa-history"></i> Added Today</h1>
+					<div class="list-added">
+
+					</div>
+{*					<div class="word-added">*}
+{*						<h2>*}
+{*							aaaa*}
+{*							<span> (bbb)</span>*}
+{*							<i>2021-05-02 11:13:35</i>*}
+{*						</h2>*}
+{*					</div>*}
 				</div>
 			</div>
 		</div>

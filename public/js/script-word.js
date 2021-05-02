@@ -9,9 +9,8 @@ let is_check_family = false;
 $(document).ready(function(){
 	let width = $(window).width();
 	let height = $(window).height() - 65;
-	// $(".evob-main").width(width);
 	$(".form-add-word").height(height);
-	$(".sidebar-add-word").height(height);
+	$(".list-added").height(height - 75);
 	$(".words-main").height(height);
 })
 
@@ -24,10 +23,8 @@ $(document).on("click", ".search-family", function() {
 	else {
 		$(this).removeClass("active-search-family");
 	}
-
 	$(".word_exist_panel").removeClass("show_exist_panel");
 	$(".img_loading").remove();
-
 })
 
 $(document).on('keyup', '#word_english', function() {
@@ -52,7 +49,6 @@ $(document).on('keyup', '#word_english', function() {
 					 str_family += `<div class="search-family" data-family="`+ item.word +`">
 									<label for="is_family_search-`+item.word+`">`+ item.word +` (`+ item.acronym_type +`)</label>
 									<span style="user-select: auto;font-size: 13px;color: #00000094;"> - Is word-family of <u>`+ word +`</u> ?</span>
-									<p>`+ item.translation +`</p>
 									</div>`;
 				})
 				$(".word_exist_panel").append(str_family)
@@ -82,14 +78,30 @@ $(document).ready(function(){
 	$("#typepre").parent(".type").css("background",pre_color);
 	$("#delete-translation").click(function(e){
 		e.preventDefault();
-		console.log("aaaaa");
 	})
+	load_word_added_today();
 
 })
-
+function load_word_added_today() {
+	$.ajax({
+		type: 'GET',
+		url: 'get_word_added_today',
+		success: function(data) {
+			let word_added = JSON.parse(data);
+			console.log(word_added);
+			let str_added = '';
+			word_added.forEach(function(item, index) {
+				str_added += `<div class="word-added">
+								<h2>`+ item.word+` <span> - `+ item.acronym_type +`</span><i>`+ moment(item.created_at).fromNow() +`</i></h2>
+								<p>`+ item.translation +`</p>
+							  </div>`;
+			});
+			$(".list-added").append(str_added);
+		}
+	})
+}
 $(document).on('click', ".btn-addword", function(e){
 	e.preventDefault();
-
 	// word value
 	let word;
 	let check_word_english;
@@ -110,11 +122,10 @@ $(document).on('click', ".btn-addword", function(e){
 	let source_select;
 	let source_selected;
 	let source;
-
 	family_word = $("#word_family").val();
-
 	/* validation input WORD */
 	check_word_english = validation($("#word_english"), 'word_english', 'Please input word english', '');
+
 	if(check_word_english) {
 		word = $("#word_english").val();
 	}
@@ -142,6 +153,7 @@ $(document).on('click', ".btn-addword", function(e){
 		item_translation = $("#translation_vn_"+i);
 		text_element = 'translation_vn_'+i;
 		check_translation_item = validation(item_translation, text_element, 'Please input translation', '');
+
 	}
 	// check source has checked
 	source_select = $(".source_select");
@@ -157,8 +169,6 @@ $(document).on('click', ".btn-addword", function(e){
 			check_source = true;
 		}
 	}
-
-
 	if(check_word_english && check_source && check_translation_item && arr_type.length > 0 && arr_sentence.length > 0 && check_sentence_item) {
 		$.ajax({
 			type: 'POST',
@@ -173,20 +183,25 @@ $(document).on('click', ".btn-addword", function(e){
 
 			},
 			success: function(data) {
-				console.log(data);
-				let word = JSON.parse(data);
-				if(data != '') {
+				if(data == 'success') {
 					$('.toast').toast('show');
 					$('input[type="text"]').val("");
 					$("#word_english").focus();
-
-					let str_added = `<div class="word-added">
-									<h2>`+ word[0].word +` <span>(`+ word[0].acronym_type +`)</span></h2>
-									<p>`+ word[0].translation +`</p>
-									<i>`+ word[0].sentence +`</i>
-								</div>`;
-					$(".sidebar-add-word").append(str_added);
-					console.log(word[0].word);
+					var str_added = '';
+					let arr_type_name = arr_type.map((type, index, arr_type)=> {
+						if(type == '7') return 'adj';
+						if(type == '8') return 'noun';
+						if(type == '9') return 'verb';
+						if(type == '10') return 'adv';
+						if(type == '11') return 'conj';
+						if(type == '12') return 'pre';
+					})
+					$.each(arr_type_name, function(index, value){
+						str_added += `<div class="word-added added-justnow">
+										<h2>`+ word +` <span> - `+ value +`</span><i>Just now</i></h2>
+									  </div>`;
+					})
+					$(".list-added").prepend(str_added);
 				}
 				else {
 					$('.toast').toast('show');
@@ -196,8 +211,6 @@ $(document).on('click', ".btn-addword", function(e){
 		})
 	}
 })
-
-
 $(document).on('click', ".word-item", function() {
 	$(".word-item").removeClass("active-word-item")
 	$(this).addClass("active-word-item");
@@ -250,8 +263,6 @@ $(document).on('click', ".word-item", function() {
 		}
 	})
 })
-
-
 function get_type(data) {
 	let type_str = '';
 	switch(data) {
@@ -270,13 +281,12 @@ function get_type(data) {
 	}
 	return type_str;
 }
-
 $(document).on("click", "#add-translation-input", function() {
 	let trans = $(".translation_vn").length;
 	trans = parseInt(trans)+1;
 	$strInput = `<div class="input-translation">
 				<div class="translation_type">
-				<input type="text" class="translation_vn form-control" id="translation_vn_`+ trans +`" data-type="" data-stt="1" value="" name="translation" placeholder="Translation..">
+				<input type="text" autocomplete="off" class="translation_vn form-control" id="translation_vn_`+ trans +`" data-type="" data-stt="1" value="" name="translation" placeholder="Translation..">
 				<button class="set_type"><i class="fas fa-question"></i></button>
 				<button class="remove_input_translation"><i class="far fa-trash-alt"></i></button>
 				</div>
@@ -286,9 +296,9 @@ $(document).on("click", "#add-translation-input", function() {
 				<small class="form-text text-muted mess_small_sentence_`+ trans +`"></small>
 				</div>`;
 	$(".list-input-translation").append($strInput);
+	$("#translation_vn_" + trans).focus();
 
 })
-
 $(document).on('click', '#add_source', function() {
 	$(".form-add-source").show();
 	$(".form-add-source input").focus();

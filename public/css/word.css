@@ -110,6 +110,7 @@
 
 .word-add {
 	width: 100%;
+	padding-right: 20px;
 }
 .word-add .sidebar-add-word {
 	height: 100%;
@@ -118,14 +119,17 @@
 	position: sticky;
 	top: 0;
 	width: 100%;
+
+}
+.list-added {
 	overflow: auto;
 }
-.sidebar-add-word::-webkit-scrollbar
+.sidebar-add-word .list-added::-webkit-scrollbar
 {
 	width: 7px;
 	background-color: #ccc;
 }
-.sidebar-add-word::-webkit-scrollbar-thumb
+.sidebar-add-word .list-added::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	background-color: #41331c;
@@ -134,20 +138,35 @@
 	font-size: 17px;
 	font-weight: normal;
 	margin-bottom: 10px;
-	background: #ccc;
+	background: #b58433;
 	padding: 7px 10px;
+	color: #fff;
 }
 .sidebar-add-word .word-added {
 	border-bottom: 1px solid #ccc;
 	padding: 10px 0;
 	padding: 10px;
 }
+.word-added p {
+	font-size: 14px;
+}
 .word-added h2 {
-	font-size: 22px;
+	font-size: 18px;
+	text-transform: capitalize;
 }
 .word-added h2 span {
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: normal;
+	font-style: italic;
+}
+.word-added h2 i {
+	float: right;
+	font-size: 14px;
+	margin-top: 8px;
+	font-weight: normal;
+}
+.added-justnow {
+	background: #eee;
 }
 .word-add .sentence {
 	padding: 0px 10px;
@@ -203,7 +222,7 @@
 	padding-left: 0;
 }
 .list-input-translation {
-	background: #eee;
+	background: #f8f9fa;
 	padding: 10px;
 	margin-bottom: 1rem;
 	border: 1px solid #ccc;
@@ -221,7 +240,7 @@
 }
 .categories {
 	margin-bottom: 1rem;
-	background: #eee;
+	background: #f8f9fa;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
@@ -273,7 +292,7 @@
 .word_exist_panel {
 	display: none;
 	position: absolute;
-	top: 35px;
+	top: 57px;
 	left: 0px;
 	background: #f9f8f8;
 	width: 100%;
@@ -283,12 +302,20 @@
 	user-select: auto;
 	padding: 5px 0;
 }
+.word_exist_panel p {
+	padding: 0 10px;
+	font-weight: bold;
+}
+.hide_word_exist_panel {
+	position: absolute;
+	right:0;
+	top: 5px;
+}
 .show_exist_panel {
 	display: block !important;
 }
 .show_exist_panel .search-family {
-	border-bottom: 1px solid #ccc;
-	padding: 10px 10px;
+	padding: 0px 10px;
 	position: relative;
 	cursor: pointer;
 }
