@@ -211,6 +211,7 @@ $(document).on('click', ".btn-addword", function(e){
 		})
 	}
 })
+
 $(document).on('click', ".word-item", function() {
 	$(".word-item").removeClass("active-word-item")
 	$(this).addClass("active-word-item");

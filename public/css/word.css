@@ -10,7 +10,32 @@
 
 }
 .words-page .detail-words .element-word {
+	position: relative;
+}
+.form-update-translation {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding: 10px;
+	background: #eeeeee;
+	z-index: 11;
+}
+.form-update-translation #btn-update-translation {
+	background: #41331c;
+	color: #fff;
+	border: none;
+	box-shadow: none;
+}
+.form-update-translation #btn-update-translation:hover {
+	box-shadow: -3px 4px 1px 0px black;
+}
+.form-update-translation #btn-cancel-update-translation {
+	border:none;
+}
 
+.form-update-translation textarea {
+	margin: 10px 0;
 }
 .words-page .detail-words .element-word #name-element{
 	font-size: 25px;
