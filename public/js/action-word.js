@@ -5,6 +5,7 @@ $(document).ready(function(){
 	$("body").on("click", ".update-translation", function(){
 		_translation_edit = $(this).parents("#element-translation").children("#name-element-translation").html();
 		_sentence_edit = $(this).parents("#element-translation").children("#sentences-translation").html();
+		$(".form-update-translation").remove();
 		let str_html = `<form class="form-update-translation">
 							<input type="text" class="form-control translation_edit" value="`+ _translation_edit +`">
 							<textarea name="" class="form-control sentence_edit" id="" cols="30" rows="3">`+ _sentence_edit +`</textarea>
@@ -30,9 +31,36 @@ $(document).ready(function(){
 
 		// cần kiểm tra input change để hide
 		$(".form-update-translation").hide();
-
 		$(this).parents(".form-update-translation").prev().find("#name-element-translation").html(change_translation.val());
 		$(this).parents(".form-update-translation").prev().find("#sentences-translation").html(change_sentence.val());
+		let translation_data = $(this).parents(".form-update-translation").prev().find("#name-element-translation").attr('attr-translation');
+		let sentence_data = $(this).parents(".form-update-translation").prev().find("#sentences-translation").attr('attr-sentence');
+
+		// tách chuỗi lấy id
+		let id_translation = (translation_data.split("-"))[1];
+		let old_translation = translation_data.split("-")[0];
+		let id_sentence = sentence_data.split("-")[1];
+		let old_sentence = sentence_data.split("-")[0];
+		$.ajax({
+			type: 'POST',
+			url: 'word/update_translation_sentence_by_id/' + id_translation + "/" + id_sentence,
+			data: {
+				'content_translation': change_translation.val(),
+				'content_sentence': change_sentence.val(),
+			},
+			success: function(data) {
+				console.log(data);
+				if(data === 'updated') {
+					$('.toast').toast('show');
+					$(".toast-body").html("Updated <p><b>"+ old_translation +"</b></p><p><b>"+ old_sentence +"</b></p>");
+				}
+				else {
+					alert("error");
+				}
+			}
+		});
+
+
 
 	});
 

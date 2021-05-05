@@ -14,7 +14,14 @@
 {*content page*}
 {block name=body}
 	<div class="words-page" style="width: 100%;">
-
+		<div class="toast" role="alert" data-delay="1000" aria-live="assertive" aria-atomic="true" style="position: fixed; bottom: 10px; right: 10px; min-width: 300px;z-index: 10000;">
+			<div class="toast-header">
+				Thông báo
+			</div>
+			<div class="toast-body">
+				Thêm từ vựng thành công
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-8" style>
 				<div class="words-main">

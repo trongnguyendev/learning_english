@@ -242,8 +242,8 @@ $(document).on('click', ".word-item", function() {
 							<div class="translation_of_word">
 								<div id="element-translation">
 									<span id="stt-element">`+ (index + 1) +`</span>
-									<h2 id="name-element-translation">`+ word.translation +`</h2>
-									<p id="sentences-translation">`+ word.sentence +`</p>
+									<h2 id="name-element-translation" attr-translation="`+ word.translation +`-`+ word.translation_id +`" >`+ word.translation +`</h2>
+									<p id="sentences-translation" attr-sentence="`+ word.sentence +`-`+ word.sentence_id +`">`+ word.sentence +`</p>
 									<div class="dropdown-translation">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
 										<div class="dropdown-menu" aria-labelledby="dropdown-1">
@@ -257,7 +257,6 @@ $(document).on('click', ".word-item", function() {
 						</div>
 						`;
 					}
-
 				})
 			});
 			$(".detail-words").append(str_html);

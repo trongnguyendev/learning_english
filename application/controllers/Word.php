@@ -177,5 +177,32 @@ class Word extends Base {
 		$this->words_english_model->update_word($id, $data_update);
 	}
 
+	public function update_translation_sentence_by_id($id_translation, $id_sentence) {
+		$updated_at = date('Y-m-d H-i-s', time());
+		$content_translation_update = $this->input->post('content_translation');
+		$content_sentence_update = $this->input->post('content_sentence');
+		$data_update_translation = array(
+			'new_translation' => $content_translation_update,
+			'updated_at' => $updated_at
+		);
+
+		$is_update_translation = $this->translation_vietnamese->update_translation($id_translation, $data_update_translation);
+
+		$data_update_sentence = array(
+			'new_sentence' => $content_sentence_update
+		);
+
+		$id_update_sentence = $this->sentence_model->update_sentence($id_sentence, $data_update_sentence);
+
+		if($is_update_translation & $id_update_sentence) {
+			echo 'updated';
+		}
+		else {
+			echo 'error update';
+		}
+	}
+
+
+
 
 }
