@@ -12,6 +12,8 @@ $(document).ready(function(){
 	$(".form-add-word").height(height);
 	$(".list-added").height(height - 75);
 	$(".words-main").height(height);
+	$(".sidebar").height(height - 65);
+
 })
 
 $(document).on("click", ".search-family", function() {
@@ -76,9 +78,7 @@ $(document).ready(function(){
 	$("#typeadv").parent(".type").css("background",adv_color);
 	$("#typeconj").parent(".type").css("background",conj_color);
 	$("#typepre").parent(".type").css("background",pre_color);
-	$("#delete-translation").click(function(e){
-		e.preventDefault();
-	})
+
 	load_word_added_today();
 
 })
@@ -100,6 +100,10 @@ function load_word_added_today() {
 		}
 	})
 }
+
+$(document).on('submit', ".form-add-word",function(e) {
+	e.preventDefault();
+})
 $(document).on('click', ".btn-addword", function(e){
 	e.preventDefault();
 	// word value
@@ -259,7 +263,7 @@ $(document).on('click', ".word-item", function() {
 					}
 				})
 			});
-			$(".detail-words").append(str_html);
+			$(".detail-words").html(str_html);
 		}
 	})
 })

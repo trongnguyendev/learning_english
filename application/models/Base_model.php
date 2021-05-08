@@ -75,7 +75,7 @@ class Base_model extends  CI_Model
 		}
 	}
 
-	protected function update($id, $data)
+	public function update($id, $data)
 	{
 		if(isset($id) && isset($data)) {
 			$this->db->where('id', $id);
@@ -83,10 +83,12 @@ class Base_model extends  CI_Model
 		}
 	}
 
-	protected  function delete($id) {
-		if(isset($id)) {
+	public  function delete($id) {
+		if(isset($id) && $this->find_bool($id, 'id')) {
 			$this->db->where('id', $id);
 			$this->db->delete($this->_db);
+			return true;
 		}
+		return false;
 	}
 }

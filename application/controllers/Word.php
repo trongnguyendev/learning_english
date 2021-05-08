@@ -177,6 +177,7 @@ class Word extends Base {
 		$this->words_english_model->update_word($id, $data_update);
 	}
 
+	/* update translation and sentence by id - 06/05/2021 */
 	public function update_translation_sentence_by_id($id_translation, $id_sentence) {
 		$updated_at = date('Y-m-d H-i-s', time());
 		$content_translation_update = $this->input->post('content_translation');
@@ -194,11 +195,46 @@ class Word extends Base {
 
 		$id_update_sentence = $this->sentence_model->update_sentence($id_sentence, $data_update_sentence);
 
-		if($is_update_translation & $id_update_sentence) {
+		if($is_update_translation && $id_update_sentence) {
 			echo 'updated';
 		}
 		else {
 			echo 'error update';
+		}
+	}
+
+	public function delete_translation_sentence_by_id($id_translation, $id_sentence) {
+		$is_delete_translation = $this->translation_vietnamese->delete($id_translation);
+		$is_delete_sentence = $this->sentence_model->delete($id_sentence);
+		if($is_delete_translation && $is_delete_sentence) {
+			echo "Deleted";
+		}
+		else {
+			echo "Error";
+		}
+	}
+
+	public function store_source() {
+		$source = $this->input->post('name_source');
+		$data_source = array(
+			'name_source' => $source
+		);
+		$is_source = $this->source_model->store($data_source);
+		if($is_source) {
+			echo $is_source;
+		}
+		else {
+			echo "Error add";
+		}
+	}
+
+	public function delete_source($id_source) {
+		$is_delete_source = $this->source_model->delete($id_source);
+		if($is_delete_source) {
+			echo "Deleted";
+		}
+		else {
+			echo "Error";
 		}
 	}
 
