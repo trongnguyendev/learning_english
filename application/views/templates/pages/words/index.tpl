@@ -25,6 +25,21 @@
 		<div class="row">
 			<div class="col-md-8" style>
 				<div class="words-main">
+					<div class="add-source-parent">
+						<input id="ip-add-source-parent" type="text" name="" id="" placeholder="Input source-parent">
+						<button id="btn-add-source-parent"><i class="fas fa-plus"></i></button>
+{*						<div class="select-type-source">*}
+{*							<select name="" id="">*}
+{*								<option value="">Source parent</option>*}
+{*								<option value="">Source child</option>*}
+{*							</select>*}
+
+{*							<select name="" id="">*}
+{*								<option value="">Chicken soup for the soul</option>*}
+{*								<option value="">News language paralel</option>*}
+{*							</select>*}
+{*						</div>*}
+					</div>
 					{foreach $sources as $source}
 					<section>
 						<h1 id="title-words-main">{$source.name_source}</h1>

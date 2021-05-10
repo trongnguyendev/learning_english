@@ -122,3 +122,29 @@ footer p {
 .sidebar-menu li a i {
 	width: 40px;
 }
+
+.words-main {
+
+}
+.words-main .add-source-parent{
+	border: 1px solid #ccc;
+	max-width: 334px;
+	margin: auto;
+	border-radius: 5px;
+	box-shadow: 0px 0px 9px #ccc;
+	padding: 5px 8px;
+	position: relative;
+	background: #fff;
+}
+.words-main .add-source-parent input {
+	background: transparent;
+	width: 100%;
+	border: none;
+}
+.words-main .add-source-parent button {
+	position: absolute;
+	right: 5px;
+	top: 9px;
+	border: none;
+	background: transparent;
+}

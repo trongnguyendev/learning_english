@@ -150,3 +150,29 @@ $(document).ready(function(){
 		});
 	});
 });
+
+$(document).on("click", '#btn-add-source-parent', function(e) {
+	e.preventDefault();
+	let source = $("#ip-add-source-parent").val();
+	if(source) {
+		$.ajax({
+			type: 'POST',
+			url: 'word/store_source',
+			data: {
+				'name_source': source,
+			},
+			success: function(data) {
+				$(this).prev().html("");
+				$(this).prev().focus();
+				let str_html = ''
+				if(data != 'Error add') {
+					str_html = `<section><h1 id="title-words-main">`+ source +`</h1></section>`;
+				}
+				$(".words-main").append(str_html);
+			}
+		});
+	}
+	else {
+		$(".mess_small_source").html("No input source");
+	}
+})
