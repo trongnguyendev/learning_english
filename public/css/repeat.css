@@ -1,0 +1,58 @@
+.words-repeat {
+
+}
+
+.words-repeat .form-repeat {
+
+}
+
+.form-repeat .input-repeat {
+	background: transparent;
+	border:none;
+	border-bottom: 1px solid #ccc;
+	font-size: 21px;
+	padding: 4px 10px;
+	margin-bottom: 10px;
+}
+.form-repeat .input-repeat:focus {
+	outline: none;
+}
+
+.form-repeat .lb_repeat {
+	margin-right: 10px;
+	background: #ddd;
+	padding: 5px 13px;
+	border-radius: 3px;
+}
+
+
+.words-repeat {
+
+}
+.words-repeat .sidebar {
+	position: sticky;
+	top: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background: #f8f9fa;
+	padding: 10px;
+}
+#title-words-main {
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+.sidebar section {
+	margin-bottom: 15px;
+}
+.word-item {
+	background: #ffff;
+	font-size: 17px;
+	border-radius: 3px;
+	padding: 2px 5px;
+	display: inline-block;
+	margin: 0 0px 5px 0;
+	cursor: pointer;
+	color: black;
+	box-shadow: 0px 0px 5px;
+}
+

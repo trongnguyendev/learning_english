@@ -238,6 +238,10 @@ class Word extends Base {
 		}
 	}
 
+	public function repeat() {
+		$this->template->view('pages/words/write-repeat');
+	}
+
 
 
 

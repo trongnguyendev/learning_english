@@ -30,7 +30,7 @@
 					<a class="nav-link" href="/word/add"><i class="fas fa-puzzle-piece"></i>Add new</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/word/write"><i class="fas fa-pen-alt"></i>Write repeat</a>
+					<a class="nav-link" href="/word/repeat"><i class="fas fa-pen-alt"></i>Write repeat</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/word/write"><i class="fas fa-chart-pie"></i>Analyst Vocabulary</a>
